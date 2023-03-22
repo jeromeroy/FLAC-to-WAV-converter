@@ -1,5 +1,9 @@
-
-
+# FLAC to AIFF converter
+# Desciption:   Converts all .flac files into .aiff or .wav
+#
+# Author:       Jérôme Roy
+# Date:         22.03.23
+# Update:       22.03.23
 
 import os
 import soundfile as sf
@@ -18,9 +22,9 @@ for filename in os.listdir(flac_dir):
         # Build the full path to the FLAC file
         flac_path = os.path.join(flac_dir, filename)
 
-        # Build the full path to the WAV file
-        wav_path = os.path.join(flac_dir, os.path.splitext(filename)[0] + ".aiff")
+        # Build the full path to the AIFF file
+        wav_path = os.path.join(flac_dir, os.path.splitext(filename)[0] + ".aiff") #change to .wav if you want .wav files
 
-        # Load the FLAC file and write it to a WAV file
+        # Load the FLAC file and write it to a AIFF file
         data, samplerate = sf.read(flac_path)
         sf.write(wav_path, data, samplerate)
