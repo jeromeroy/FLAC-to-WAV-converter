@@ -9,6 +9,7 @@ import os
 import soundfile as sf
 import tkinter as tk
 from tkinter import filedialog
+import send2trash
 
 # Create a file dialog to select the directory containing the FLAC files
 root = tk.Tk()
@@ -28,3 +29,5 @@ for filename in os.listdir(flac_dir):
         # Load the FLAC file and write it to a AIFF file
         data, samplerate = sf.read(flac_path)
         sf.write(wav_path, data, samplerate)
+        # Move the FLAC file to the trash
+        send2trash.send2trash(flac_path)
